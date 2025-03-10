@@ -15,11 +15,13 @@ int main(){
   key = ftok("queue", 1);
   fd = msgget(key, IPC_CREAT|0606);
   for(i = 0; i < 18; i++){
-    if(msgrcv(fd, &mobj, 101, -4, 0) > 0)
+    if(msgrcv(fd, &mobj, 101, -6, 0) > 0)
       printf("%s\n", mobj.mtext);
     else{
       printf("not queue\n");
       exit(0);
     }
   }
+  msgctl(fd, IPC_RMID, 0);
+  printf("queue was removed\n");
 }

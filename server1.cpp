@@ -15,7 +15,10 @@ int main(){
   key = ftok("queue", 1);
   fd = msgget(key, IPC_CREAT|0606);
   for(int i = 0; i < 3; i++){
-    msgsnd(fd, &mobj, strlen(mobj.mtext)+1, 0);
+    if(msgsnd(fd, &mobj, strlen(mobj.mtext)+1, 0) == -1){
+      perror("Ошибка отправки сообщения");
+      exit(EXIT_FAILURE);
+    }
   }
   exit(0);
 }

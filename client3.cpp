@@ -12,10 +12,10 @@ struct mbuf{
 
 int main(){
   int fd, i, key;
-  key = ftok("proba1", 1);
-  fd = msgget(key2, IPC_CREAT|0606);
+  key = ftok("queue", 1);
+  fd = msgget(key, IPC_CREAT|0606);
   for(i = 0; i < 3; i++){
-    if(msgrcv(fd, &mobj, 101, -4, 0) > 0)
+    if(msgrcv(fd, &mobj, 101, -6, 0) > 0)
       printf("%s\n", mobj.mtext);
     else{
       printf("not queue\n");

@@ -15,6 +15,7 @@ int main(){
   key = ftok("queue", 1);
   fd = msgget(key, IPC_CREAT|0606);
   for(i = 0; i < 6; i++){
+    //if(msgrcv(fd, &mobj, 101, 3, IPC_NOWAIT) > 0)
     if(msgrcv(fd, &mobj, 101, 3, 0) > 0)
       printf("%s\n", mobj.mtext);
     else{

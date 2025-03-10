@@ -1,0 +1,11 @@
+all:
+	g++ client1.cpp -o client1
+	g++ client2.cpp -o client2
+	g++ client3.cpp -o client3
+	g++ client4.cpp -o client4
+	g++ server1.cpp -o server1
+	g++ server2.cpp -o server2
+	g++ server3.cpp -o server3
+	g++ server4.cpp -o server4
+	g++ server5.cpp -o server5
+	g++ server6.cpp -o server6
